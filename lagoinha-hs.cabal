@@ -1,20 +1,20 @@
-cabal-version: 1.12
+cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0036c6c6afd0d3f2d02928c5edf67f48d69fe80be01da265aef502b7abb2ccc9
+-- hash: d3eea84f87adfccf1e6da1253f5c3350c65cfe7fe9b128b28e1aeeec450c99f3
 
 name:           lagoinha-hs
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/lagoinha-hs#readme>
-homepage:       https://github.com/githubuser/lagoinha-hs#readme
-bug-reports:    https://github.com/githubuser/lagoinha-hs/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2019 Author name here
-license:        BSD3
+description:    Please see the README on GitHub at <https://github.com/felipemonobe/lagoinha-hs#readme>
+homepage:       https://github.com/felipemonobe/lagoinha-hs#readme
+bug-reports:    https://github.com/felipemonobe/lagoinha-hs/issues
+author:         Felipe Monbe
+maintainer:     xinube@gmail.com
+copyright:      2019 Felipe Monobe
+license:        Unlicense
 license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
@@ -23,17 +23,24 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/lagoinha-hs
+  location: https://github.com/felipemonobe/lagoinha-hs
 
 library
   exposed-modules:
-      Lib
+      CepAberto
+      Correios
+      ViaCep
+      Widenet
   other-modules:
       Paths_lagoinha_hs
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , bytestring
+    , lens
+    , wreq
+    , xml
   default-language: Haskell2010
 
 executable lagoinha-hs-exe
@@ -45,7 +52,11 @@ executable lagoinha-hs-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , bytestring
     , lagoinha-hs
+    , lens
+    , wreq
+    , xml
   default-language: Haskell2010
 
 test-suite lagoinha-hs-test
@@ -58,5 +69,9 @@ test-suite lagoinha-hs-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , bytestring
     , lagoinha-hs
+    , lens
+    , wreq
+    , xml
   default-language: Haskell2010

@@ -1,4 +1,4 @@
-module ViaCep (
+module Widenet (
   fetchCep,
 ) where
 
@@ -10,6 +10,6 @@ fetchCep :: String -> IO (ByteString)
 fetchCep cep = do
   response <- WR.get url
   return (response ^. WR.responseBody)
-    where url = endpoint ++ cep ++ format
-          endpoint = "https://viacep.com.br/ws/"
-          format   = "/json"
+    where url     = endpoint ++ cep ++ format
+          format     = ".json"
+          endpoint = "https://apps.widenet.com.br/busca-cep/api/cep/"
