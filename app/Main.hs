@@ -9,7 +9,7 @@ main :: IO ()
 main = do
     putStrLn "Qual CEP devo buscar?"
     cep <- getLine
-    -- response <- CO.fetchCep cep
+    response <- CO.fetchCep cep
     -- response <- VC.fetchCep cep
     -- response <- CA.fetchCep cep
     -- response <- WN.fetchCep cep
