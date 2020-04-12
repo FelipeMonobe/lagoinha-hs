@@ -11,11 +11,16 @@ import qualified Network.Wreq          as WR (Response, responseBody, postWith, 
 import qualified Text.XML.Light        as XM (parseXML)
 
 -- fetchCep :: String -> IO (WR.Response ByteString)
-fetchCep = fetchXML
-  -- where xmlString = (fetchXML cep) ^. WR.responseBody
-  -- mapM_ putStrLn
-  --     . concatMap (map (fromJust.findAttr (unqual name)).filterElementsName (== unqual elm))
-  --     . onlyElems.  parseXML
+-- fetchCep cep = do
+--   xmlString <- fetchXML cep
+
+------ Example code from Rosetta code to get Student.Name from a XML string ------
+-- xmlRead elm name  = mapM_ putStrLn
+--   . concatMap (map (fromJust.findAttr (unqual name)).filterElementsName (== unqual elm))
+--   . onlyElems
+--   . parseXML
+
+xmlRead "Student" "Name" students
 
 fetchXML :: String -> IO (ByteString)
 fetchXML cep = do
