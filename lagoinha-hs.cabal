@@ -1,10 +1,10 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d3eea84f87adfccf1e6da1253f5c3350c65cfe7fe9b128b28e1aeeec450c99f3
+-- hash: 68e0056c4f7bee2467dd5de6f58724c37860c01a240a2efa86be34c759ad7999
 
 name:           lagoinha-hs
 version:        0.1.0.0
@@ -29,14 +29,18 @@ library
   exposed-modules:
       CepAberto
       Correios
+      Endereco
       ViaCep
       Widenet
   other-modules:
       Paths_lagoinha_hs
   hs-source-dirs:
       src
+  default-extensions: RecordWildCards OverloadedStrings
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , async
+    , base >=4.7 && <5
     , bytestring
     , lens
     , wreq
@@ -49,9 +53,11 @@ executable lagoinha-hs-exe
       Paths_lagoinha_hs
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , async
+    , base >=4.7 && <5
     , bytestring
     , lagoinha-hs
     , lens
@@ -66,9 +72,11 @@ test-suite lagoinha-hs-test
       Paths_lagoinha_hs
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -wall
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , async
+    , base >=4.7 && <5
     , bytestring
     , lagoinha-hs
     , lens

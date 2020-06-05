@@ -1,26 +1,20 @@
 module Main where
 
-import Correios  as CO (fetchCep)
-import ViaCep    as VC (fetchCep)
-import CepAberto as CA (fetchCep)
-import Widenet   as WN (fetchCep)
-
-data Endereco = Endereco
-  { uf          :: String
-  , cidade      :: String
-  , bairro      :: String
-  , cep         :: String
-  , logradouro  :: String
-  , numero      :: Int
-  , complemento :: String
-  } deriving (Show)
+import qualified Control.Monad            as MN (forM)
+import qualified Control.Concurrent.Async as AS (async, waitAnyCancel)
+import qualified Correios                 as CO (fetchEndereco)
+import qualified ViaCep                   as VC (fetchEndereco)
+import qualified CepAberto                as CA (fetchEndereco)
+import qualified Widenet                  as WN (fetchEndereco)
 
 main :: IO ()
 main = do
-  putStrLn "Qual CEP devo buscar?"
-  cep <- getLine
-  response <- CO.fetchCep cep
-  -- response <- VC.fetchCep cep
-  -- response <- CA.fetchCep cep
-  -- response <- WN.fetchCep cep
+  putStrLn "Qual CEP buscar?"
+  cep      <- getLine
+  requests <- MN.forM [ VC.fetchEndereco
+                      , CO.fetchEndereco
+                      , CA.fetchEndereco
+                      , WN.fetchEndereco
+                      ] $ \fn -> AS.async (fn cep)
+  (_, response) <- AS.waitAnyCancel requests
   print response

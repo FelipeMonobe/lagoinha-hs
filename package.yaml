@@ -25,9 +25,14 @@ dependencies:
 - lens
 - bytestring
 - xml
+- aeson
+- async
 
 library:
   source-dirs: src
+  default-extensions:
+    - RecordWildCards
+    - OverloadedStrings
 
 executables:
   lagoinha-hs-exe:
@@ -37,6 +42,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wall
     dependencies:
     - lagoinha-hs
 
@@ -48,5 +54,6 @@ tests:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -wall
     dependencies:
     - lagoinha-hs
