@@ -1,4 +1,6 @@
-module Main where
+module Main (
+  main,
+) where
 
 import qualified Control.Monad            as MN (forM)
 import qualified Control.Concurrent.Async as AS (async, waitAnyCancel)
@@ -15,6 +17,6 @@ main = do
                       , CO.fetchEndereco
                       , CA.fetchEndereco
                       , WN.fetchEndereco
-                      ] $ \fn -> AS.async (fn cep)
+                      ] $ \fn -> AS.async $ fn cep
   (_, response) <- AS.waitAnyCancel requests
   print response

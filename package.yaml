@@ -1,10 +1,10 @@
 name:                lagoinha-hs
 version:             0.1.0.0
 github:              "felipemonobe/lagoinha-hs"
-license:             Unlicense
-author:              "Felipe Monbe"
+license:             MIT
+author:              "Felipe Monobe"
 maintainer:          "xinube@gmail.com"
-copyright:           "2019 Felipe Monobe"
+copyright:           "2020 Felipe Monobe"
 
 extra-source-files:
 - README.md
