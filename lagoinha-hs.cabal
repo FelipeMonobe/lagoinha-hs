@@ -28,11 +28,11 @@ source-repository head
 
 library
   exposed-modules:
-      Lagoinha.CepAberto
-      Lagoinha.Correios
-      Lagoinha.Types
-      Lagoinha.ViaCep
-      Lagoinha.Widenet
+      Network.Lagoinha.CepAberto
+      Network.Lagoinha.Correios
+      Network.Lagoinha.Types
+      Network.Lagoinha.ViaCep
+      Network.Lagoinha.Widenet
   other-modules:
       Paths_lagoinha_hs
   hs-source-dirs:
@@ -70,10 +70,10 @@ test-suite lagoinha-hs-test
   type: exitcode-stdio-1.0
   main-is: Main.hs
   other-modules:
-      Lagoinha.CepAbertoSpec
-      Lagoinha.CorreiosSpec
-      Lagoinha.ViaCepSpec
-      Lagoinha.WidenetSpec
+      Network.Lagoinha.CepAbertoSpec
+      Network.Lagoinha.CorreiosSpec
+      Network.Lagoinha.ViaCepSpec
+      Network.Lagoinha.WidenetSpec
       Paths_lagoinha_hs
   hs-source-dirs:
       test

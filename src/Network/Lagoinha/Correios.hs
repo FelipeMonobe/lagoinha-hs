@@ -1,11 +1,11 @@
-module Lagoinha.Correios (
+module Network.Lagoinha.Correios (
   fetchEndereco,
 ) where
 
 import Control.Lens                          ((.~), (&), (^.))
 import Data.ByteString.Lazy.Internal         (ByteString)
 import Text.XML.Light.Types                  (Element)
-import Lagoinha.Types                        (Endereco (..))
+import Network.Lagoinha.Types                (Endereco (..))
 import qualified Data.ByteString.Char8 as BS (pack)
 import qualified Network.Wreq          as WR (responseBody, postWith, defaults, header)
 import qualified Text.XML.Light        as XM (unqual, parseXMLDoc, findElement, strContent)

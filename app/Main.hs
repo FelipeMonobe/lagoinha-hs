@@ -2,12 +2,12 @@ module Main (
   main,
 ) where
 
-import qualified Control.Monad            as MN (forM)
-import qualified Control.Concurrent.Async as AS (async, waitAnyCancel)
-import qualified Lagoinha.Correios        as CO (fetchEndereco)
-import qualified Lagoinha.ViaCep          as VC (fetchEndereco)
-import qualified Lagoinha.CepAberto       as CA (fetchEndereco)
-import qualified Lagoinha.Widenet         as WN (fetchEndereco)
+import qualified Control.Monad              as MN (forM)
+import qualified Control.Concurrent.Async   as AS (async, waitAnyCancel)
+import qualified Network.Lagoinha.Correios  as CO (fetchEndereco)
+import qualified Network.Lagoinha.ViaCep    as VC (fetchEndereco)
+import qualified Network.Lagoinha.CepAberto as CA (fetchEndereco)
+import qualified Network.Lagoinha.Widenet   as WN (fetchEndereco)
 
 main :: IO ()
 main = do

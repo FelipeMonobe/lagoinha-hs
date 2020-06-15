@@ -1,4 +1,4 @@
-module Lagoinha.WidenetSpec (
+module Network.Lagoinha.WidenetSpec (
   spec,
 ) where
 

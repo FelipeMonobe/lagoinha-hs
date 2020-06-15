@@ -1,4 +1,4 @@
-module Lagoinha.CorreiosSpec (
+module Network.Lagoinha.CorreiosSpec (
   spec,
 ) where
 

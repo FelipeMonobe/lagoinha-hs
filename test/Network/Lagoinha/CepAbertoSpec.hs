@@ -1,4 +1,4 @@
-module Lagoinha.ViaCepSpec (
+module Network.Lagoinha.CepAbertoSpec (
   spec,
 ) where
 
