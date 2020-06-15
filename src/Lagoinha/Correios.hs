@@ -1,11 +1,11 @@
-module Correios (
+module Lagoinha.Correios (
   fetchEndereco,
 ) where
 
 import Control.Lens                          ((.~), (&), (^.))
 import Data.ByteString.Lazy.Internal         (ByteString)
 import Text.XML.Light.Types                  (Element)
-import Endereco                              (Endereco (..))
+import Lagoinha.Types                        (Endereco (..))
 import qualified Data.ByteString.Char8 as BS (pack)
 import qualified Network.Wreq          as WR (responseBody, postWith, defaults, header)
 import qualified Text.XML.Light        as XM (unqual, parseXMLDoc, findElement, strContent)
@@ -35,5 +35,5 @@ fetchXML c = do
   let opts    = WR.defaults & WR.header "Content-Type" .~ [BS.pack "application/xml; charset=utf-8"]
   let url     = "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl"
   let payload = BS.pack $ "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:cli=\"http://cliente.bean.master.sigep.bsb.correios.com.br/\"><soapenv:Header/><soapenv:Body><cli:consultaCEP><cep>" ++ c ++ "</cep></cli:consultaCEP></soapenv:Body></soapenv:Envelope>"
-  response   <- WR.postWith opts url payload 
+  response   <- WR.postWith opts url payload
   return $ response ^. WR.responseBody

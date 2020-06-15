@@ -1,25 +1,26 @@
-cabal-version: 2.2
+cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.1.
+-- This file has been generated from package.yaml by hpack version 0.34.2.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: 68e0056c4f7bee2467dd5de6f58724c37860c01a240a2efa86be34c759ad7999
 
 name:           lagoinha-hs
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/felipemonobe/lagoinha-hs#readme>
 homepage:       https://github.com/felipemonobe/lagoinha-hs#readme
 bug-reports:    https://github.com/felipemonobe/lagoinha-hs/issues
-author:         Felipe Monbe
+author:         Felipe Monobe
 maintainer:     xinube@gmail.com
-copyright:      2019 Felipe Monobe
-license:        Unlicense
+copyright:      2020 Felipe Monobe
+license:        MIT
 license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
     ChangeLog.md
+    LICENSE
+    package.yaml
+    stack.yaml
 
 source-repository head
   type: git
@@ -27,11 +28,11 @@ source-repository head
 
 library
   exposed-modules:
-      CepAberto
-      Correios
-      Endereco
-      ViaCep
-      Widenet
+      Lagoinha.CepAberto
+      Lagoinha.Correios
+      Lagoinha.Types
+      Lagoinha.ViaCep
+      Lagoinha.Widenet
   other-modules:
       Paths_lagoinha_hs
   hs-source-dirs:
@@ -67,17 +68,22 @@ executable lagoinha-hs-exe
 
 test-suite lagoinha-hs-test
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  main-is: Main.hs
   other-modules:
+      Lagoinha.CepAbertoSpec
+      Lagoinha.CorreiosSpec
+      Lagoinha.ViaCepSpec
+      Lagoinha.WidenetSpec
       Paths_lagoinha_hs
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -wall
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       aeson
     , async
-    , base >=4.7 && <5
+    , base
     , bytestring
+    , hspec
     , lagoinha-hs
     , lens
     , wreq

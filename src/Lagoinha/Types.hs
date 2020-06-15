@@ -1,4 +1,4 @@
-module Endereco (
+module Lagoinha.Types (
   Endereco (..),
 ) where
 

@@ -1,11 +1,11 @@
-module CepAberto (
+module Lagoinha.CepAberto (
   fetchEndereco,
 ) where
 
 import Control.Lens                          ((.~), (&), (^.))
 import Data.ByteString.Lazy.Internal         (ByteString)
 import Data.Aeson                            ((.:), FromJSON (..))
-import Endereco                              (Endereco (..))
+import Lagoinha.Types                        (Endereco (..))
 import qualified Data.Aeson            as AE (decode, withObject)
 import qualified Data.ByteString.Char8 as BS (pack)
 import qualified Network.Wreq          as WR (getWith, defaults, header, responseBody)

@@ -1,11 +1,11 @@
-module ViaCep (
+module Lagoinha.ViaCep (
   fetchEndereco,
 ) where
 
 import Data.Aeson
 import Control.Lens                  ((^.))
 import Data.ByteString.Lazy.Internal (ByteString)
-import Endereco                      (Endereco (..))
+import Lagoinha.Types                (Endereco (..))
 import qualified Network.Wreq  as WR (get, responseBody)
 import qualified Data.Maybe    as MB (fromJust)
 
